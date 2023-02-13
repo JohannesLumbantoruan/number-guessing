@@ -1,6 +1,5 @@
 #!/bin/bash
-SECRET_NUMBER=789
-# SECRET_NUMBER=$(( $RANDOM % 1000 + 1 ))
+SECRET_NUMBER=$(( $RANDOM % 1000 + 1 ))
 NUMBER_OF_GUESSES=0
 USER_ID=0
 PSQL="psql -X --username=freecodecamp --dbname=number_guess --tuples-only -c"
