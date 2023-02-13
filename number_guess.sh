@@ -1,5 +1,6 @@
 #!/bin/bash
-SECRET_NUMBER=$(( $RANDOM % 1000 + 1 ))
+SECRET_NUMBER=789
+# SECRET_NUMBER=$(( $RANDOM % 1000 + 1 ))
 NUMBER_OF_GUESSES=0
 USER_ID=0
 PSQL="psql -X --username=freecodecamp --dbname=number_guess --tuples-only -c"
@@ -42,6 +43,5 @@ do
     NUMBER_OF_GUESSES=$(( NUMBER_OF_GUESSES + 1 ))
   fi
 done
-echo $USER_ID
 INSERT_DATA=$($PSQL "INSERT INTO games (guess_total, user_id) VALUES ($NUMBER_OF_GUESSES, $USER_ID)")
 echo "You guessed it in $NUMBER_OF_GUESSES tries. The secret number was $SECRET_NUMBER. Nice job!"
